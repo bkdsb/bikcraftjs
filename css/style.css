@@ -1,17 +1,32 @@
+/* OPEN CSS RESET */
+
 body {
   margin: 0px;
   font-family: Arial, Helvetica, sans-serif;
 }
 
-ul {
+h1,
+ul,
+p {
   margin: 0px;
+}
+
+ul {
   padding: 0px;
   list-style: none;
 }
 
 a {
   text-decoration: none;
+  color: inherit;
 }
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* CLOSE CSS RESET */
 
 .header-bg {
   background-color: #000000;
@@ -113,14 +128,17 @@ Para resolver, basta definir o 'a' como relative */
   .header-menu {
     gap: 20px;
   }
+
   .header-menu a {
     background: #111111;
     padding: 12px 16px;
     border-radius: 4px;
   }
+
   .header-menu a:hover {
     background-color: #2e2e2e;
   }
+
   .header a:after {
     display: none;
   }
@@ -132,8 +150,85 @@ Para resolver, basta definir o 'a' como relative */
   .header-menu {
     gap: 12px;
   }
+
   .header-menu a {
     padding: 8px 12px;
     font-size: 14px;
   }
+}
+
+/* Lembrar de resetar h1, h2, p, que por padrão vem com margin, isso pode quebrar/vazar os containers */
+
+.introducao-bg {
+  background: #000000;
+  color: #ffffff;
+}
+
+/* Como os itens estão divididos por colunas, coloco como
+#DISPLAY: GRID; */
+
+/* Para dar espaçamento entre os itens somente horizontalmente usa-se
+#GAP: 0PX 40PX */
+
+/* Como a intro também esta dentro do container, também é necessário definir aqui */
+
+.introducao {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0px 40px;
+  box-sizing: border-box;
+  max-width: 1200px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Para resolver problemas de alinhamento, geralmente se usa uma div para separar os conteúdos */
+
+/* Para alinhar o conteudo embaixo, usa-se
+#ALIGN-SELF: END; */
+
+.introducao-conteudo {
+  align-self: end;
+  padding-bottom: 80px;
+}
+
+.introducao h1 {
+  margin-bottom: 32px;
+  font-size: 64px;
+  line-height: 1.125;
+}
+
+/* Como foi definido que os pontos seriam amarelos, é necessários que estejam dentro de uma tag */
+
+.introducao h1 span {
+  color: #FFBF00;
+}
+
+.introducao p {
+  margin-bottom: 20px;
+  font-size: 24px;
+  line-height: 1.5;
+  color: #b2b2b2;
+}
+
+/* Por padrão o a é inline, então foi mudado para inline-block, mais uma vez */
+
+.introducao a {
+  display: inline-block;
+  padding: 16px 32px;
+  background: linear-gradient(#FFBF00, #F2A50C);
+  ;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+  text-transform: uppercase;
+  color: #332200;
+  font-size: 18px;
+  line-height: 1.33;
+  font-weight: bold;
+}
+
+.introducao a:hover {
+  background: linear-gradient(#ffb60d, #E59317);
 }
