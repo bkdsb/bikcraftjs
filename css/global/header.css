@@ -1,0 +1,129 @@
+.header-bg {
+  background-color: var(--cor-12);
+}
+
+/* Como eu quero marca de um lado e o menu do outro,
+como tenho a div com a class header, definir como grid ou flex, nesse caso o flex funciona melhor 
+#DISPLAY: GRID;
+#DISPLAY: FLEX;
+*/
+
+/* Um item numa ponta e o outro na outra 
+  #JUSTIFY-CONTENT: SPACE-BETWEEN;*/
+
+/* Para alinhar os itens ao centro um do outro
+  #ALIGN-ITEMS: CENTER;
+   */
+
+/* Para alinhar o conteúdo sempre ao centro
+#MARGIN-LEFT & MARGIN-RIGHT: AUTO; */
+
+/* Para o display se ajustar a tela, descer uma linha, é definido o
+#FLEX-WRAP: WRAP; */
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 20px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Para falar com o menu, e como são LI'S tenho que falar com o UL */
+
+/* Para colocar um do lado do outro, como antes 
+#DISPLAY-FLEX */
+
+/* Como o header-menu é outro item flex, ele também necessita de 
+#FLEX-WRAP: WRAP; */
+
+.header-menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+/* Definindo como display: inline-block, porque se esse item cair um embaixo do outro o padding não funcionaria corretamente, por padrão o 'a' é inline */
+
+.header-menu a {
+  display: inline-block;
+  padding: 16px 0;
+  font-size: 18px;
+  position: relative;
+  font-family: "Poppins";
+  font-weight: 400;
+}
+
+/* Quero um elemento abaixo dos 'a', como é depois, então usa-se o pseudo element 
+#::AFTER */
+
+/* Sempre se põe content vazio e display: block */
+
+/* Como esse elemento tem agora 6px após o conteúdo, ele nao está mais alinhado ao logo/marca */
+
+/* Tiro ele do fluxo então com
+#POSITION: ABSOLUTE; */
+
+/* Outro problema agora, como foi definido absolute passa a ser relacionado ao elemento pai, que seria o body por não ter nenhum outro com position: relative;
+
+Para resolver, basta definir o 'a' como relative */
+
+.header-menu a::after {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 0px;
+  background: var(--cor-0);
+  margin-top: 4px;
+  transition: .3s;
+  position: absolute;
+}
+
+/* Quando passar o mouse por cima, então vou querer que o after funcione */
+
+
+.header-menu a:hover:after {
+  width: 100%;
+}
+
+/* Para resolver as quebras no site, usa-se media queries */
+
+/* Diminuido o gap, tornando os botões visíveis para mobile */
+
+@media (max-width: 800px) {
+  .header-menu {
+    gap: 20px;
+  }
+
+  .header-menu a {
+    background: var(--cor-11);
+    padding: 12px 16px;
+    border-radius: 4px;
+  }
+
+  .header-menu a:hover {
+    background-color: var(--cor-10);
+  }
+
+  .header a:after {
+    display: none;
+  }
+}
+
+/* Nunca se coloca um valor exato de quebra, sempre a mais */
+
+@media (max-width: 600px) {
+  .header-menu {
+    gap: 12px;
+  }
+
+  .header-menu a {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+}

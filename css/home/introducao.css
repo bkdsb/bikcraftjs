@@ -1,0 +1,104 @@
+/* Como é o introdução-bg que está envolvendo o conteúdo, e eu quero criar o efeito de imagem sobressaindo, basta criar um box-shadow nela */
+
+/* A sombra faz parecer que os conteúdos estão vazando, para corrigir é só compensar o padding na introducao-conteudo com o valor positivo */
+
+.introducao-bg {
+  background: var(--cor-12);
+  box-shadow: inset 0 -120px var(--cor-0);
+}
+
+/* Como os itens estão divididos por colunas, coloco como
+#DISPLAY: GRID; */
+
+/* Para dar espaçamento entre os itens somente horizontalmente usa-se
+#GAP: 0PX 40PX */
+
+/* Como a intro também esta dentro do container, também é necessário definir aqui */
+
+.introducao {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0px 40px;
+  box-sizing: border-box;
+  max-width: 1200px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Para resolver problemas de alinhamento, geralmente se usa uma div para separar os conteúdos */
+
+/* Para alinhar o conteudo embaixo, usa-se
+#ALIGN-SELF: END; */
+
+.introducao-conteudo {
+  align-self: end;
+  padding-bottom: 200px;
+}
+
+/* Não é recomendado usar img dentro de um grid, sempre se comporta de maneiras diferentes, melhor envolve-la numa div */
+
+/* .introducao-imagem {
+  margin-bottom: -120px;
+} */
+
+/* A imagem cresce 100% porém a div fica -120px do container 
+o que pode gerar problema com o próximo conteúdo que vier estando por cima dele */
+
+.introducao img {
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+
+.introducao h1 {
+  margin-bottom: 32px;
+}
+
+.introducao p {
+  margin-bottom: 20px;
+}
+
+/* Adicionando responsividade a introdução */
+
+@media (max-width: 1200px) {
+  .introducao h1 {
+    font-size: 48px;
+  }
+
+  .introducao p {
+    font-size: 18px;
+  }
+}
+
+/* 1 coluna, espaçamento entre eles de 32px */
+/* Consertando o padding que foi adicionado */
+
+@media (max-width: 800px) {
+  .introducao-bg {
+    background: var(--cor-11);
+    padding-top: 40px;
+    box-shadow: inset 0 -60px var(--cor-0);
+  }
+
+  .introducao {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .introducao-conteudo {
+    padding-bottom: 0px;
+  }
+
+  .introducao h1 {
+    font-size: 32px;
+    margin-bottom: 16px;
+  }
+
+  .introducao img {
+    height: 300px;
+    width: 100%;
+  }
+}
