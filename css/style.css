@@ -3,6 +3,7 @@
 body {
   margin: 0px;
   font-family: Arial, Helvetica, sans-serif;
+  height: 2000px;
 }
 
 h1,
@@ -159,9 +160,12 @@ Para resolver, basta definir o 'a' como relative */
 
 /* Lembrar de resetar h1, h2, p, que por padrão vem com margin, isso pode quebrar/vazar os containers */
 
+/* Como é o introdução-bg que está envolvendo o conteúdo, e eu quero criar o efeito de imagem sobressaindo, basta criar um box-shadow nela */
+
 .introducao-bg {
   background: #000000;
   color: #ffffff;
+  box-shadow: 0 -120px #ffffff;
 }
 
 /* Como os itens estão divididos por colunas, coloco como
@@ -191,8 +195,23 @@ Para resolver, basta definir o 'a' como relative */
 
 .introducao-conteudo {
   align-self: end;
-  padding-bottom: 80px;
+  padding-bottom: 200px;
 }
+
+/* Não é recomendado usar img dentro de um grid, sempre se comporta de maneiras diferentes, melhor envolve-la numa div */
+
+.introducao-imagem {
+  margin-bottom: -120px;
+}
+
+/* A imagem cresce 100% porém a div fica -120px do container 
+o que pode gerar problema com o próximo conteúdo que vier estando por cima dele */
+
+.introducao img {
+  height: 100%;
+  object-fit: cover;
+}
+
 
 .introducao h1 {
   margin-bottom: 32px;
