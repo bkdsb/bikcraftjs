@@ -1,0 +1,62 @@
+.bicicletas-lista {
+  padding-top: 60px;
+  padding-bottom: 120px;
+}
+
+/* Como o h2 ficou flutuando, colocamos um max-width de 1200 para entrar no tamanho do container */
+
+.bicicletas-lista h2 {
+  margin-bottom: 40px;
+  box-sizing: border-box;
+  max-width: 1200px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Como há uma bike ao lado da outra, melhor usar flex */
+/* Se eu tenho um máximo, tenho sempre que definir as margins */
+.bicicletas-lista ul {
+  display: flex;
+  gap: 40px;
+  padding: 0 20px;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Como o a é inline, mudamos para display block para selecionar todo o conteúdo, e não apenas as partes dos conteúdos */
+
+.bicicletas-lista a {
+  display: block;
+}
+
+.bicicletas-lista img {
+  margin-bottom: 16px;
+}
+
+/* Para centralizar os elementos, então foi definido o h3 como display flex */
+
+.bicicletas-lista h3 {
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+}
+
+/* Detalhe definido com um pseudo elemento */
+
+.bicicletas-lista h3::before {
+  content: "";
+  display: inline-block;
+  height: 8px;
+  width: 12px;
+  margin-right: 8px;
+  background-color: var(--cor-p1);
+}
+
+/* Alinhando o preço ao topo, a soma da largura com a margin */
+
+.bicicletas-lista li span {
+  padding-left: 20px;
+}
