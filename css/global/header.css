@@ -27,11 +27,8 @@ como tenho a div com a class header, definir como grid ou flex, nesse caso o fle
   gap: 20px;
   justify-content: space-between;
   align-items: center;
-  box-sizing: border-box;
-  padding: 20px;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 /* Para falar com o menu, e como são LI'S tenho que falar com o UL */
