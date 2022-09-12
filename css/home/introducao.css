@@ -41,6 +41,7 @@
 o que pode gerar problema com o próximo conteúdo que vier estando por cima dele */
 
 .introducao img {
+  width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: 4px;
