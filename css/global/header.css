@@ -53,10 +53,7 @@ como tenho a div com a class header, definir como grid ou flex, nesse caso o fle
 .header-menu a {
   display: inline-block;
   padding: 16px 0;
-  font-size: 18px;
   position: relative;
-  font-family: "Poppins";
-  font-weight: 400;
 }
 
 /* Quero um elemento abaixo dos 'a', como é depois, então usa-se o pseudo element 
