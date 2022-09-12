@@ -28,7 +28,7 @@
   max-width: 1400px;
   margin-left: auto;
   margin-right: auto;
-  overflow: scroll;
+  overflow-x: auto;
   /* flex-wrap: wrap;
   Para a lista quebrar qnd atingir um tamanho especifico */
 }
