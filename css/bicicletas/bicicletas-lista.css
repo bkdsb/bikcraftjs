@@ -27,6 +27,10 @@
   Para a lista quebrar qnd atingir um tamanho especifico */
 }
 
+#bicicleta .bicicletas-lista ul {
+  padding: 0px 0px 20px 0px;
+}
+
 /* O LI é o item flexível, porque o pai está display flex UL */
 
 /* Agora terá no mínimo 280px por causa do flex: 1;*/
