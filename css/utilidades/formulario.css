@@ -19,7 +19,7 @@
 .form input[type="email"],
 .form textarea {
   font: 400 1rem/1.5 "Roboto", sans-serif;
-  background-color: var(--cor-1);
+  background: var(--cor-1);
   border: 1px solid var(--cor-2);
   padding: 12px;
   border-radius: 4px;
