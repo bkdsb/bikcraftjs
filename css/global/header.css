@@ -80,8 +80,10 @@ Para resolver, basta definir o 'a' como relative */
 
 /* Quando passar o mouse por cima, então vou querer que o after funcione */
 
+/* .header-menu a.ativo (quando a tag a conter a class ativo então ative) */
 
-.header-menu a:hover:after {
+.header-menu a:hover::after,
+.header-menu a.ativo::after {
   width: 100%;
 }
 
