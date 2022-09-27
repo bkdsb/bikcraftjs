@@ -137,32 +137,56 @@ perguntas.forEach(eventosPerguntas);
 
 //GALERIA DE BICICLETAS
 
-//Começar selecionando a lista
+/* Começar selecionando a lista
 const galeria = document.querySelectorAll('.bicicleta-imagens img');
-//Selecionando também o container que envolve a galeria
+Selecionando também o container que envolve a galeria
 const galeriaContainer = document.querySelector('.bicicleta-imagens');
 
-//Função de trocar imagem 
+Função de trocar imagem 
 function trocarImagem(event){
  const img = event.currentTarget;
- //Uma verificação se a tela está em um tamanho para parar de executar o prepend(), o método é o matchMedia('') que recebe string e um media como escreveríamos no CSS matchMedia('(min-width: 1000px)') e adicionamos o '.matches' para verificar se está no tamanho definido
- //
+ Uma verificação se a tela está em um tamanho para parar de executar o prepend(), o método é o matchMedia('') que recebe string e um media como escreveríamos no CSS matchMedia('(min-width: 1000px)') e adicionamos o '.matches' para verificar se está no tamanho definido
+ 
  const media = matchMedia('(min-width: 1000px)').matches;
  console.log(media);
 
  if(media){
-   //Temos um metodo para trocar a ordem de itens no DOM (html), que é o prepend() que remove um elemento e coloca-o em outra posição
+   Temos um metodo para trocar a ordem de itens no DOM (html), que é o prepend() que remove um elemento e coloca-o em outra posição
    galeriaContainer.prepend(img);
   }
  }
 
 
-
-
-//Passando as imagens e dentro delas o evento de click e uma função para trocar imagem
+Passando as imagens e dentro delas o evento de click e uma função para trocar imagem
 function eventosGaleria(img) {
   img.addEventListener('click', trocarImagem);
 }
 
-//Sempre começamos adicionando o evento de click
+Sempre começamos adicionando o evento de click
+galeria.forEach(eventosGaleria); */
+
+//FUNÇÃO PARA MUDAR IMAGEM NA GALERIA DA PAGINA DAS BICICLETAS
+const galeria = document.querySelectorAll('.bicicleta-imagens img');
+const galeriaContainer = document.querySelector('.bicicleta-imagens');
+function trocarImagem(event) {
+  const img = event.currentTarget;
+  const media = matchMedia('(min-width: 1000px)').matches;
+  console.log(media);
+  if (media) {
+    galeriaContainer.prepend(img);
+  }
+}
+function eventosGaleria(img) {
+  img.addEventListener('click', trocarImagem);
+}
 galeria.forEach(eventosGaleria);
+
+//###############################################################
+
+//ANIMAÇÃO DO PLUGIN SIMPLE ANIME
+//https://github.com/origamid/simple-anime
+
+//Verificando se o plugin existe
+if (window.SimpleAnime) { 
+  new SimpleAnime(); 
+}
