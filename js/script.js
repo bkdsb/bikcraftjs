@@ -34,10 +34,10 @@ function ativarLink(link) {
   const url = location.href;
   const href = link.href;
   if (url.includes(href)) {
-   link.classList.add('ativo');
+    link.classList.add('ativo');
   }
 }
-links.forEach(ativarLink); 
+links.forEach(ativarLink);
 
 //###############################################################
 
@@ -64,11 +64,73 @@ parametros.forEach(ativarProduto);
  */
 
 const parametros = new URLSearchParams(location.search);
-function ativarProduto(parametro){
+function ativarProduto(parametro) {
   const elemento = document.getElementById(parametro);
-  if(elemento) {
+  if (elemento) {
     elemento.checked = true;
   }
   console.log(elemento);
 }
 parametros.forEach(ativarProduto);
+
+//###############################################################
+
+/* Perguntas frequentes
+
+Selecionando cada botão dentro de perguntas 
+
+
+// Selecionando cada botão dentro de perguntas 
+const perguntas = document.querySelectorAll('.perguntas button');
+
+//Aqui definimos o que vai ocorrer quando clicar na pergunta
+//Se estou dentro de um evento tenho acesso ao parâmetro event
+function ativarPergunta(event){
+  //Para puxar o elemento que está selecionado/clicado
+ const pergunta = event.currentTarget;
+  //O botão e a pergunta tem o mesmo id e então se relacionam
+  //Para puxar o valor que está em ariacontrols quando clicar
+  const controls = pergunta.getAttribute('aria-controls');
+
+  //Agora é só selecionar o elemento
+  const resposta = document.getElementById(controls);
+
+  //Adicionar uma classe na resposta que ativa e desativa com o toggle
+  resposta.classList.toggle('ativa');
+
+  //Para verificarmos se no botão contém a classe 'ativa' e então adicionar o aria-expanded=true
+  const ativa = resposta.classList.contains('ativa');
+  console.log(ativa)
+  //Para mudarmos o valor do aria-controls selecionamos ele e depois o novo valor que será definido usando o setAttribute()
+
+  //Se passamos o valor direto, por ser booleano, ele transforma automaticamente na string
+  pergunta.setAttribute('aria-expanded', ativa);
+}
+
+
+//Aqui na função temos acesso a cada pergunta específica 
+function eventosPerguntas(pergunta) {
+  //dentro da pergunta adicionamos o evento de clique
+  pergunta.addEventListener('click', ativarPergunta);
+
+}
+
+perguntas.forEach(eventosPerguntas);
+*/
+
+//FUNÇÃO PARA PERGUNTAS FREQUENTES QUE ADICIONA CLASSE E VALOR, OU REMOVE-OS TAMBÉM
+const perguntas = document.querySelectorAll('.perguntas button');
+function ativarPergunta(event) {
+  const pergunta = event.currentTarget;
+  const controls = pergunta.getAttribute('aria-controls');
+  const resposta = document.getElementById(controls);
+  resposta.classList.toggle('ativa');
+  const ativa = resposta.classList.contains('ativa');
+  pergunta.setAttribute('aria-expanded', ativa);
+}
+function eventosPerguntas(pergunta) {
+  pergunta.addEventListener('click', ativarPergunta);
+}
+perguntas.forEach(eventosPerguntas);
+
+//###############################################################
