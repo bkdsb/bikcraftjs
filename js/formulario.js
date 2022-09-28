@@ -1,5 +1,5 @@
 /* 
-Formulario JS - Integrando com o PHP
+Formulario JS - Integrando com o PHP - URL do Script PHP de envio> https://www.origamid.com/slide/html-e-css-para-iniciantes/#/1304-formulario-php/3
 
 Selecionamos o formulário das duas páginas, mas temos que tomar cuidado em projetos maiores e que existam mais
 
@@ -59,7 +59,7 @@ function formularioEnviado(resposta) {
 }
 function enviarFormulario(event) {
   event.preventDefault();
-  const botao = document.querySelector('form button');
+  const botao = document.querySelector('form button')
   botao.disabled = true;
   botao.innerText = "Enviando...";
   const data = new FormData(formulario);
@@ -68,4 +68,4 @@ function enviarFormulario(event) {
     body: data
   }).then(formularioEnviado);
 }
-formulario.addEventListener('submit', enviarFormulario)
+formulario.addEventListener('submit', enviarFormulario) 
